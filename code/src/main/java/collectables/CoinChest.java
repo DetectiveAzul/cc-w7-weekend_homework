@@ -1,7 +1,5 @@
 package collectables;
 
-import dungeon.Room;
-
 public class CoinChest extends Treasure {
     private CoinType type;
     int quantity;

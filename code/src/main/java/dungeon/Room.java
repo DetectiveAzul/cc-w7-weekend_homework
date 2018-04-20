@@ -91,6 +91,7 @@ public abstract class Room {
         return west;
     }
 
+    // Create a string with all the available exits for the room
     public String getExitsAvailable() {
         ArrayList<String> exits = new ArrayList<>();
         if (this.north != null) exits.add("north");

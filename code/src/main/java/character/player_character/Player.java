@@ -1,6 +1,5 @@
 package character.player_character;
 
-import behaviours.ICollectionist;
 import character.Character;
 import collectables.Treasure;
 import dungeon.Room;
@@ -8,7 +7,7 @@ import dungeon.Room;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Player extends Character implements ICollectionist {
+public class Player extends Character {
 
     public Player(String name) {
         super(name);
@@ -28,7 +27,7 @@ public class Player extends Character implements ICollectionist {
             else checkDirectionChoice(choice);
             }
 
-    //Check a string and execute the appropiate movement
+    //Check a string and execute the correct movement
     public void checkDirectionChoice(String choice) {
         switch (choice) {
             case "north":
@@ -53,19 +52,25 @@ public class Player extends Character implements ICollectionist {
     //Collection of items
 
     public String displayTreasures() {
+        //Get all the names and add them to a new ArrayList
         ArrayList<String> treasuresNames = new ArrayList<>();
         for (Treasure treasure:
                 getTreasures()) {
             treasuresNames.add(treasure.getName());
         }
+
+        //Joins the arraylist to display it on the runner
         String joinedString = String.join(", ", treasuresNames);
         if (treasuresNames.size() == 0) return "You do not have items on your bag";
         return "You have on your inventory: " + joinedString;
     }
 
     public void takeObject(String action) {
+        //Split the string in two, and take the part without the web
         String[] actionArray = action.split(" ", 2);
         Treasure treasureToGet = null;
+
+        //Loop over the words to check if any of the words in the name is included on the array with the words from the action
         firstLoop: for (Treasure treasure: getCurrentRoom().getTreasures()) {
             for (String treasureWord: treasure.getName().split(" ")) {
                 if (Arrays.asList(actionArray[1].split(" ")).contains(treasureWord)) {
@@ -75,6 +80,7 @@ public class Player extends Character implements ICollectionist {
             }
         }
 
+        //Then if he found an object, this adds it to the player and removes from the room
         if (treasureToGet != null) {
             addTreasure(treasureToGet);
             getCurrentRoom().removeTreasure(treasureToGet);
@@ -82,8 +88,11 @@ public class Player extends Character implements ICollectionist {
     }
 
     public void dropObject(String action) {
+        //Split the string in two, and take the part without the web
         String[] actionArray = action.split(" ", 2);
         Treasure treasureToDrop = null;
+
+        //Loop over the words to check if any of the words in the name is included on the array with the words from the action
         firstLoop: for (Treasure treasure: getTreasures()) {
             for (String treasureWord: treasure.getName().split(" ")) {
                 if (Arrays.asList(actionArray[1].split(" ")).contains(treasureWord)) {
@@ -92,7 +101,7 @@ public class Player extends Character implements ICollectionist {
                 }
             }
         }
-
+        //Then if he found an object, this adds it to the player and removes from the room
         if (treasureToDrop != null) {
             removeTreasure(treasureToDrop);
             getCurrentRoom().addTreasure(treasureToDrop);
