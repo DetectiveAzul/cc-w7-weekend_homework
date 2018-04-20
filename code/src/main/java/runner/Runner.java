@@ -6,8 +6,6 @@ import collectables.CoinType;
 import dungeon.*;
 
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Runner {
     public static void main(String[] args) {
@@ -43,8 +41,11 @@ public class Runner {
             Scanner user_input = new Scanner(System.in);
             String choice = user_input.nextLine();
             if (choice.startsWith("exit")) break;
+            if (choice.startsWith("takeall")) player.takeAll();
             if (choice.startsWith("take")) player.takeObject(choice);
+            if (choice.startsWith("dropall")) player.dropAll();
             if (choice.startsWith("drop")) player.dropObject(choice);
+            if (choice.startsWith("status")) player.displayStatus();
             player.checkDirectionChoice(choice);
 
         }

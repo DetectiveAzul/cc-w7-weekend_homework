@@ -1,16 +1,23 @@
 package character;
 
+import behaviours.ICollectionist;
 import behaviours.IMovable;
 import behaviours.ITargetable;
+import collectables.Treasure;
 import dungeon.Room;
+import runner.TextColor;
 
-public abstract class Character implements IMovable, ITargetable {
+import java.util.ArrayList;
+
+public abstract class Character implements IMovable, ITargetable, ICollectionist {
     private String name;
     private int maxhp;
     private int hp;
     private int maxStamina;
     private int stamina;
     private Room currentRoom;
+    private ArrayList<Treasure> treasures;
+
 
     public Character(String name) {
         this.name = name;
@@ -18,6 +25,8 @@ public abstract class Character implements IMovable, ITargetable {
         this.hp = maxhp;
         this.maxStamina = 0;
         this.stamina = maxStamina;
+        this.treasures = new ArrayList<>();
+
     }
 
     public Character(String name, int maxhp, int maxStamina, Room currentRoom) {
@@ -27,6 +36,8 @@ public abstract class Character implements IMovable, ITargetable {
         this.hp = maxhp;
         this.stamina = maxStamina;
         this.currentRoom = currentRoom;
+        this.treasures = new ArrayList<>();
+
     }
 
     public String getName() {
@@ -86,6 +97,55 @@ public abstract class Character implements IMovable, ITargetable {
 
     public void takeHealing(int healing) {
         hp += healing;
+    }
+
+    //Displaying Character status
+    public void displayStatus() {
+        System.out.println();
+        displayHP();
+        displayStamina();
+        System.out.println();
+    }
+
+    private void displayHP() {
+        System.out.print("HP: ");
+        System.out.println(
+                TextColor.RED.getAnsiiCode() + getHp() +
+                        TextColor.WHITE.getAnsiiCode() + "/" +
+                        TextColor.RED.getAnsiiCode() + getMaxhp() + TextColor.RESET.getAnsiiCode()
+        );
+    }
+
+    private void displayStamina() {
+        System.out.print("ST: ");
+        System.out.println(
+                TextColor.GREEN.getAnsiiCode() + getStamina() +
+                        TextColor.WHITE.getAnsiiCode() + "/" +
+                        TextColor.GREEN.getAnsiiCode() + getMaxStamina() + TextColor.RESET.getAnsiiCode()
+        );
+    }
+
+    //General Inventory Management
+
+    public ArrayList<Treasure> getTreasures() {
+        return treasures;
+    }
+
+    public void setTreasures(ArrayList<Treasure> treasure) {
+        this.treasures = treasure;
+    }
+
+    public void addTreasure(Treasure treasure) {
+        treasures.add(treasure);
+    }
+
+    public void removeTreasure(Treasure treasure) {
+        treasures.remove(treasure);
+    }
+
+    public void dropAll() {
+        currentRoom.getTreasures().addAll(treasures);
+        treasures.clear();
     }
 
 }

@@ -9,5 +9,4 @@ public interface ICollectionist {
     void setTreasures(ArrayList<Treasure> treasures);
     void addTreasure(Treasure treasure);
     void removeTreasure(Treasure treasure);
-    String displayTreasures();
 }

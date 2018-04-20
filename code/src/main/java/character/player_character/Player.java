@@ -9,17 +9,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Player extends Character implements ICollectionist {
-    private ArrayList<Treasure> treasures;
 
     public Player(String name) {
         super(name);
-        this.treasures = new ArrayList<>();
     }
 
     public Player(String name, int maxhp, int maxStamina, Room currentRoom) {
         super(name, maxhp, maxStamina, currentRoom);
-        this.treasures = new ArrayList<>();
-
     }
 
     //Check a string and execute the appropiate movement
@@ -46,26 +42,10 @@ public class Player extends Character implements ICollectionist {
 
     //Collection of items
 
-    public ArrayList<Treasure> getTreasures() {
-        return treasures;
-    }
-
-    public void setTreasures(ArrayList<Treasure> treasure) {
-        this.treasures = treasure;
-    }
-
-    public void addTreasure(Treasure treasure) {
-        treasures.add(treasure);
-    }
-
-    public void removeTreasure(Treasure treasure) {
-        treasures.remove(treasure);
-    }
-
     public String displayTreasures() {
         ArrayList<String> treasuresNames = new ArrayList<>();
         for (Treasure treasure:
-                treasures) {
+                getTreasures()) {
             treasuresNames.add(treasure.getName());
         }
         String joinedString = String.join(", ", treasuresNames);
@@ -107,6 +87,11 @@ public class Player extends Character implements ICollectionist {
             removeTreasure(treasureToDrop);
             getCurrentRoom().addTreasure(treasureToDrop);
         }
+    }
+
+    public void takeAll() {
+        getTreasures().addAll(getCurrentRoom().getTreasures());
+        getCurrentRoom().getTreasures().clear();
     }
 
 
