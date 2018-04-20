@@ -1,3 +1,4 @@
+import character.non_player_character.NonPlayerCharacter;
 import collectables.CoinChest;
 import collectables.CoinType;
 import dungeon.*;
@@ -15,6 +16,7 @@ public class CommonRoomPropertiesTest {
     private MonsterRoom monster;
     private EndRoom end;
     private CoinChest chest;
+    private NonPlayerCharacter foe;
 
     @Before
     public void setup() {
@@ -24,6 +26,7 @@ public class CommonRoomPropertiesTest {
         end = new EndRoom("The Exit", "If you have the key, you can escape");
         treasure2 = new TreasureRoom("Treasure Room 2", "Test Room");
         chest = new CoinChest(100, CoinType.GOLD);
+        foe = new NonPlayerCharacter("Giant Spider");
 
     }
 
@@ -87,6 +90,24 @@ public class CommonRoomPropertiesTest {
         treasure.addTreasure(chest);
         treasure.removeTreasure(chest);
         assertEquals(0, treasure.getTreasures().size());
+    }
+
+    @Test
+    public void hasFoes() {
+        assertEquals(0, monster.getFoes().size());
+    }
+
+    @Test
+    public void canAddFoe() {
+        monster.addFoe(foe);
+        assertEquals(1, monster.getFoes().size());
+    }
+
+    @Test
+    public void canRemoveFoe() {
+        monster.addFoe(foe);
+        monster.removeFoe(foe);
+        assertEquals(0, monster.getFoes().size());
     }
 
 }

@@ -1,5 +1,6 @@
 package dungeon;
 
+import character.non_player_character.NonPlayerCharacter;
 import collectables.Treasure;
 
 import java.util.ArrayList;
@@ -19,11 +20,15 @@ public abstract class Room {
     //Collectables
     private ArrayList<Treasure> treasures;
 
+    //NonPlayerCharacters
+    private ArrayList<NonPlayerCharacter> foes;
+
     public Room(RoomType type, String name, String description) {
         this.type = type;
         this.name = name;
         this.description = description;
         this.treasures = new ArrayList<>();
+        this.foes = new ArrayList<>();
     }
 
     //Basic getters
@@ -43,6 +48,40 @@ public abstract class Room {
     public ArrayList<Treasure> getTreasures() {
         return treasures;
     }
+
+    public ArrayList<NonPlayerCharacter> getFoes() {
+        return foes;
+    }
+
+    // Foes setters
+
+    public void setFoes(ArrayList<NonPlayerCharacter> foes) {
+        this.foes = foes;
+    }
+
+    public void addFoe(NonPlayerCharacter foe) {
+        foes.add(foe);
+    }
+
+    public void removeFoe(NonPlayerCharacter foe) {
+        foes.remove(foe);
+    }
+
+    //Display foes
+
+    public String displayFoes() {
+        ArrayList<String> foesNames = new ArrayList<>();
+        for (NonPlayerCharacter foe:
+                foes) {
+            foesNames.add(foe.getName());
+        }
+        String joinedString = String.join(", ", foesNames);
+        if (foesNames.size() == 0) return "Nobody is here";
+        return "You see: " + joinedString;
+    }
+
+
+
 
     // Treasure setters
 

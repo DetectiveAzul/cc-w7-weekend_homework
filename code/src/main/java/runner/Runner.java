@@ -1,5 +1,6 @@
 package runner;
 
+import character.non_player_character.NonPlayerCharacter;
 import character.player_character.Player;
 import collectables.CoinChest;
 import collectables.CoinType;
@@ -16,12 +17,15 @@ public class Runner {
         EndRoom end = new EndRoom("The Exit", "If you have the key, you can escape");
         CoinChest chest = new CoinChest(100, CoinType.GOLD);
         CoinChest chest2 = new CoinChest(100, CoinType.COPPER);
+        NonPlayerCharacter foe = new NonPlayerCharacter("Giant Spider");
+
 
         entry.setNorth(monster);
         entry.setSouth(treasure);
 
         treasure.addTreasure(chest);
         treasure.addTreasure(chest2);
+        monster.addFoe(foe);
         player.setCurrenRoom(treasure);
 
         boolean game = true;
@@ -33,6 +37,8 @@ public class Runner {
             System.out.println();
             System.out.println(TextColor.PURPLE.getAnsiiCode() + player.getCurrentRoom().displayTreasures());
             System.out.println(TextColor.PURPLE.getAnsiiCode() + player.displayTreasures());
+            System.out.println();
+            System.out.println(TextColor.GREEN.getAnsiiCode() + player.getCurrentRoom().displayFoes());
             System.out.println();
             System.out.println(TextColor.YELLOW.getAnsiiCode() + player.getCurrentRoom().getExitsAvailable());
             System.out.println();
