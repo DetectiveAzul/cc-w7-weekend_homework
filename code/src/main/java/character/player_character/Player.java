@@ -2,12 +2,20 @@ package character.player_character;
 
 import behaviours.IMovable;
 import character.Character;
+import dungeon.Room;
 
-public class Player extends Character implements IMovable {
+public class Player extends Character {
+    private Room currentRoom;
+
     public Player(String name) {
         super(name);
     }
 
+    public Player(String name, int maxhp, int maxStamina, Room currentRoom) {
+        super(name, maxhp, maxStamina, currentRoom);
+    }
+
+    //Check a string and execute the appropiate movement
     public void checkDirectionChoice(String choice) {
         switch (choice) {
             case "north":
@@ -27,25 +35,11 @@ public class Player extends Character implements IMovable {
         }
     }
 
-    public void goNorth() {
-        if (getCurrentRoom().getNorth() != null)
-            setCurrenRoom(getCurrentRoom().getNorth());
-    }
+    //Combat actions
 
-    public void goSouth() {
-        if (getCurrentRoom().getSouth() != null)
-            setCurrenRoom(getCurrentRoom().getSouth());
-    }
+    //Collection of items
 
-    public void goEast() {
-        if (getCurrentRoom().getEast() != null)
-            setCurrenRoom(getCurrentRoom().getEast());
-    }
-
-    public void goWest() {
-        if (getCurrentRoom().getWest() != null)
-            setCurrenRoom(getCurrentRoom().getWest());
-    }
+    //Special actions
 
 
 }

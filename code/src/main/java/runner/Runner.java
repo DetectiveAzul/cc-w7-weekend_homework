@@ -33,23 +33,7 @@ public class Runner {
             Scanner user_input = new Scanner(System.in);
             String choice = user_input.next();
 
-            switch (choice) {
-                case "north":
-                    if (player.getCurrentRoom().getNorth() != null)
-                        player.setCurrenRoom(player.getCurrentRoom().getNorth());
-                    break;
-                case "south":
-                    if (player.getCurrentRoom().getSouth() != null)
-                        player.setCurrenRoom(player.getCurrentRoom().getSouth());
-                    break;
-                case "exit":
-                    System.out.println("Byebye!");
-                    game = false;
-                    break;
-                default:
-                    System.out.println("You cannot go that way");
-                    break;
-            }
+            player.checkDirectionChoice(choice);
 
         }
 

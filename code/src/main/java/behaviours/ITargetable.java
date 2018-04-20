@@ -1,6 +1,6 @@
 package behaviours;
 
 public interface ITargetable {
-    void takeDamage();
-    void takeHealing();
+    void takeDamage(int damage);
+    void takeHealing(int healing);
 }
