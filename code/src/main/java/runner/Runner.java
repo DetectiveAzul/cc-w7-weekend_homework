@@ -1,13 +1,13 @@
 package runner;
 
-import character.player_character.PlayGroundCharacter;
+import character.player_character.Player;
 import dungeon.*;
 
 import java.util.Scanner;
 
 public class Runner {
     public static void main(String[] args) {
-        PlayGroundCharacter player = new PlayGroundCharacter("Cian");
+        Player player = new Player("Cian");
 
         TreasureRoom treasure = new TreasureRoom("Treasure Room", "A small treasure room");
         EntryRoom entry = new EntryRoom("Dungeon Entrance", "Where the dungeon begins");
