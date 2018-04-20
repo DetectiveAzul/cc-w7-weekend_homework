@@ -1,4 +1,6 @@
 import character.player_character.Player;
+import collectables.CoinChest;
+import collectables.CoinType;
 import dungeon.EndRoom;
 import dungeon.EntryRoom;
 import dungeon.RoomType;
@@ -13,6 +15,8 @@ public class PlayerTest {
     private Player player2;
     private EntryRoom entryRoom;
     private EndRoom endRoom;
+    private CoinChest chest;
+
 
     @Before
     public void setup() {
@@ -21,6 +25,7 @@ public class PlayerTest {
         endRoom = new EndRoom("End", "An End");
         player2 = new Player("Frodo", 100, 50, entryRoom);
         entryRoom.setNorth(endRoom);
+        chest = new CoinChest(100,CoinType.GOLD);
 
     }
 
@@ -72,4 +77,23 @@ public class PlayerTest {
         player.checkDirectionChoice("south");
         assertEquals(RoomType.ENTRY, player.getCurrentRoom().getType());
     }
+
+    @Test
+    public void hasTreasures() {
+        assertEquals(0, player.getTreasures().size());
+    }
+
+    @Test
+    public void canAddTreasure() {
+        player.addTreasure(chest);
+        assertEquals(1, player.getTreasures().size());
+    }
+
+    @Test
+    public void canRemoveTreasure() {
+        player.addTreasure(chest);
+        player.removeTreasure(chest);
+        assertEquals(0, player.getTreasures().size());
+    }
+
 }

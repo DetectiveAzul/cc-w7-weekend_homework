@@ -32,6 +32,7 @@ public class Runner {
             System.out.println(TextColor.CYAN.getAnsiiCode() + player.getCurrentRoom().getDescription());
             System.out.println();
             System.out.println(TextColor.PURPLE.getAnsiiCode() + player.getCurrentRoom().displayTreasures());
+            System.out.println(TextColor.PURPLE.getAnsiiCode() + player.displayTreasures());
             System.out.println(TextColor.YELLOW.getAnsiiCode() + player.getCurrentRoom().getExitsAvailable());
             System.out.println();
             System.out.println(TextColor.RESET.getAnsiiCode() + "What are you doing?");
@@ -39,7 +40,8 @@ public class Runner {
             Scanner user_input = new Scanner(System.in);
             String choice = user_input.next();
 
-//            player.checkDirectionChoice(choice);
+
+            player.checkDirectionChoice(choice);
 
         }
 
