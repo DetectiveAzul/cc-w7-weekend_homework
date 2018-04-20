@@ -2,9 +2,9 @@ package collectables;
 
 public abstract class Treasure {
     String name;
-    int value;
+    double value;
 
-    public Treasure(String name, int value) {
+    public Treasure(String name, double value) {
         this.name = name;
         this.value = value;
     }
@@ -13,7 +13,7 @@ public abstract class Treasure {
         return name;
     }
 
-    public int getValue() {
+    public double getValue() {
         return value;
     }
 }
