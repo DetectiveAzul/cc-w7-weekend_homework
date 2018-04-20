@@ -1,9 +1,14 @@
 package runner;
 
+import character.player_character.PlayGroundCharacter;
 import dungeon.*;
+
+import java.util.Scanner;
 
 public class Runner {
     public static void main(String[] args) {
+        PlayGroundCharacter player = new PlayGroundCharacter("Cian");
+
         TreasureRoom treasure = new TreasureRoom("Treasure Room", "A small treasure room");
         EntryRoom entry = new EntryRoom("Dungeon Entrance", "Where the dungeon begins");
         MonsterRoom monster = new MonsterRoom("Boss Lair", "The house of a small green dragon");
@@ -12,15 +17,42 @@ public class Runner {
         entry.setNorth(monster);
         entry.setSouth(treasure);
 
-        Room current_room = entry;
+        player.setCurrenRoom(entry);
 
-        System.out.println(TextColor.BLUE.getAnsiiCode() + current_room.getName());
-        System.out.println(TextColor.CYAN.getAnsiiCode() + current_room.getDescription());
-        System.out.println();
-        System.out.println(TextColor.PURPLE.getAnsiiCode() + "There are:");
-        System.out.println(TextColor.YELLOW.getAnsiiCode() + current_room.getExitsAvailable());
-        System.out.println();
-        System.out.println(TextColor.RESET.getAnsiiCode() + "What are you doing?");
+        boolean game = true;
+        while(game) {
+
+            System.out.println(TextColor.BLUE.getAnsiiCode() + player.getCurrentRoom().getName());
+            System.out.println(TextColor.CYAN.getAnsiiCode() + player.getCurrentRoom().getDescription());
+            System.out.println();
+            System.out.println(TextColor.PURPLE.getAnsiiCode() + "There are:");
+            System.out.println(TextColor.YELLOW.getAnsiiCode() + player.getCurrentRoom().getExitsAvailable());
+            System.out.println();
+            System.out.println(TextColor.RESET.getAnsiiCode() + "What are you doing?");
+
+            Scanner user_input = new Scanner(System.in);
+            String choice = user_input.next();
+
+            switch (choice) {
+                case "north":
+                    if (player.getCurrentRoom().getNorth() != null)
+                        player.setCurrenRoom(player.getCurrentRoom().getNorth());
+                    break;
+                case "south":
+                    if (player.getCurrentRoom().getSouth() != null)
+                        player.setCurrenRoom(player.getCurrentRoom().getSouth());
+                    break;
+                case "exit":
+                    System.out.println("Byebye!");
+                    game = false;
+                    break;
+                default:
+                    System.out.println("You cannot go that way");
+                    break;
+            }
+
+        }
+
 
 
     }
