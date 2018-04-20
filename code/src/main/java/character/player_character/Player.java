@@ -6,6 +6,7 @@ import collectables.Treasure;
 import dungeon.Room;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Player extends Character implements ICollectionist {
     private ArrayList<Treasure> treasures;
@@ -71,6 +72,43 @@ public class Player extends Character implements ICollectionist {
         if (treasuresNames.size() == 0) return "You do not have items on your bag";
         return "You have on your inventory: " + joinedString;
     }
+
+    public void takeObject(String action) {
+        String[] actionArray = action.split(" ", 2);
+        Treasure treasureToGet = null;
+        firstLoop: for (Treasure treasure: getCurrentRoom().getTreasures()) {
+            for (String treasureWord: treasure.getName().split(" ")) {
+                if (Arrays.asList(actionArray[1].split(" ")).contains(treasureWord)) {
+                    treasureToGet = treasure;
+                    break firstLoop;
+                }
+            }
+        }
+
+        if (treasureToGet != null) {
+            addTreasure(treasureToGet);
+            getCurrentRoom().removeTreasure(treasureToGet);
+        }
+    }
+
+    public void dropObject(String action) {
+        String[] actionArray = action.split(" ", 2);
+        Treasure treasureToDrop = null;
+        firstLoop: for (Treasure treasure: getTreasures()) {
+            for (String treasureWord: treasure.getName().split(" ")) {
+                if (Arrays.asList(actionArray[1].split(" ")).contains(treasureWord)) {
+                    treasureToDrop = treasure;
+                    break firstLoop;
+                }
+            }
+        }
+
+        if (treasureToDrop != null) {
+            removeTreasure(treasureToDrop);
+            getCurrentRoom().addTreasure(treasureToDrop);
+        }
+    }
+
 
 
     //Special actions

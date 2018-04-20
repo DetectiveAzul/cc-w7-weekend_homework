@@ -96,4 +96,13 @@ public class PlayerTest {
         assertEquals(0, player.getTreasures().size());
     }
 
+    @Test
+    public void canTakeTreasureFromRoom() {
+        player.setCurrenRoom(entryRoom);
+        entryRoom.addTreasure(chest);
+        player.takeObject("take Chest");
+        assertEquals(0, entryRoom.getTreasures().size());
+        assertEquals(1, player.getTreasures().size());
+    }
+
 }
