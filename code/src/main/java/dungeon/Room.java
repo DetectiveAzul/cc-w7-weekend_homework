@@ -1,5 +1,7 @@
 package dungeon;
 
+import collectables.Treasure;
+
 import java.util.ArrayList;
 
 public abstract class Room {
@@ -14,10 +16,14 @@ public abstract class Room {
     private Room east;
     private Room west;
 
+    //Collectables
+    private ArrayList<Treasure> treasures;
+
     public Room(RoomType type, String name, String description) {
         this.type = type;
         this.name = name;
         this.description = description;
+        this.treasures = new ArrayList<>();
     }
 
     //Basic getters
@@ -32,6 +38,39 @@ public abstract class Room {
 
     public String getDescription() {
         return description;
+    }
+
+    public ArrayList<Treasure> getTreasures() {
+        return treasures;
+    }
+
+    // Treasure setters
+
+    //This is to add a whole array to the room, substituting anything already there
+    public void setTreasures(ArrayList<Treasure> treasures) {
+        this.treasures = treasures;
+    }
+
+    //To add and remove individual objects
+    public void addTreasure(Treasure treasure) {
+        treasures.add(treasure);
+    }
+
+    public void removeTreasure(Treasure treasure) {
+        treasures.remove(treasure);
+    }
+
+    //Display treasures
+
+    public String displayTreasures() {
+        ArrayList<String> treasuresNames = new ArrayList<>();
+        for (Treasure treasure:
+             treasures) {
+            treasuresNames.add(treasure.getName());
+        }
+        String joinedString = String.join(", ", treasuresNames);
+        if (treasuresNames.size() == 0) return "There are no objects on this room";
+        return "There are: " + joinedString;
     }
 
     //Getters for the exits
@@ -54,11 +93,12 @@ public abstract class Room {
 
     public String getExitsAvailable() {
         ArrayList<String> exits = new ArrayList<>();
-        if (this.north != null) exits.add("North");
-        if (this.east != null) exits.add("East");
-        if (this.south != null) exits.add("South");
-        if (this.west != null) exits.add("West");
+        if (this.north != null) exits.add("north");
+        if (this.east != null) exits.add("east");
+        if (this.south != null) exits.add("south");
+        if (this.west != null) exits.add("west");
         String exitsAvailable = String.join(", ", exits);
+        if (exits.size() == 0) return "No exits available";
         return "Exits Available are: " + exitsAvailable;
     }
 

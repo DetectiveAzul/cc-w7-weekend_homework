@@ -1,3 +1,5 @@
+import collectables.CoinChest;
+import collectables.CoinType;
 import dungeon.*;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,6 +14,7 @@ public class CommonRoomPropertiesTest {
     private EntryRoom entry;
     private MonsterRoom monster;
     private EndRoom end;
+    private CoinChest chest;
 
     @Before
     public void setup() {
@@ -20,6 +23,8 @@ public class CommonRoomPropertiesTest {
         monster = new MonsterRoom("Boss Lair", "The house of a small green dragon");
         end = new EndRoom("The Exit", "If you have the key, you can escape");
         treasure2 = new TreasureRoom("Treasure Room 2", "Test Room");
+        chest = new CoinChest(100, CoinType.GOLD);
+
     }
 
     @Test
@@ -64,6 +69,24 @@ public class CommonRoomPropertiesTest {
         assertEquals(RoomType.TREASURE_ROOM, monster.getSouth().getType());
         assertEquals(RoomType.TREASURE_ROOM, treasure2.getEast().getType());
 
+    }
+
+    @Test
+    public void hasTreasures() {
+        assertEquals(0, treasure.getTreasures().size());
+    }
+
+    @Test
+    public void canAddTreasure() {
+        treasure.addTreasure(chest);
+        assertEquals(1, treasure.getTreasures().size());
+    }
+
+    @Test
+    public void canRemoveTreasure() {
+        treasure.addTreasure(chest);
+        treasure.removeTreasure(chest);
+        assertEquals(0, treasure.getTreasures().size());
     }
 
 }

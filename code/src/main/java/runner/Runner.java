@@ -1,6 +1,8 @@
 package runner;
 
 import character.player_character.Player;
+import collectables.CoinChest;
+import collectables.CoinType;
 import dungeon.*;
 
 import java.util.Scanner;
@@ -13,19 +15,23 @@ public class Runner {
         EntryRoom entry = new EntryRoom("Dungeon Entrance", "Where the dungeon begins");
         MonsterRoom monster = new MonsterRoom("Boss Lair", "The house of a small green dragon");
         EndRoom end = new EndRoom("The Exit", "If you have the key, you can escape");
+        CoinChest chest = new CoinChest(100, CoinType.GOLD);
+
 
         entry.setNorth(monster);
         entry.setSouth(treasure);
 
-        player.setCurrenRoom(entry);
+        treasure.addTreasure(chest);
+        player.setCurrenRoom(treasure);
 
         boolean game = true;
         while(game) {
 
             System.out.println(TextColor.BLUE.getAnsiiCode() + player.getCurrentRoom().getName());
+            System.out.println();
             System.out.println(TextColor.CYAN.getAnsiiCode() + player.getCurrentRoom().getDescription());
             System.out.println();
-            System.out.println(TextColor.PURPLE.getAnsiiCode() + "There are:");
+            System.out.println(TextColor.PURPLE.getAnsiiCode() + player.getCurrentRoom().displayTreasures());
             System.out.println(TextColor.YELLOW.getAnsiiCode() + player.getCurrentRoom().getExitsAvailable());
             System.out.println();
             System.out.println(TextColor.RESET.getAnsiiCode() + "What are you doing?");
@@ -33,7 +39,7 @@ public class Runner {
             Scanner user_input = new Scanner(System.in);
             String choice = user_input.next();
 
-            player.checkDirectionChoice(choice);
+//            player.checkDirectionChoice(choice);
 
         }
 
