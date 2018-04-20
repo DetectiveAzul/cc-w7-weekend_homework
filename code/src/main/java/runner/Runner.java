@@ -38,15 +38,15 @@ public class Runner {
             System.out.println();
             System.out.println(TextColor.RESET.getAnsiiCode() + "What are you doing?");
 
+            //User Input
             Scanner user_input = new Scanner(System.in);
             String choice = user_input.nextLine();
+
+            //Check for break condition
             if (choice.startsWith("exit")) break;
-            if (choice.startsWith("takeall")) player.takeAll();
-            if (choice.startsWith("take")) player.takeObject(choice);
-            if (choice.startsWith("dropall")) player.dropAll();
-            if (choice.startsWith("drop")) player.dropObject(choice);
-            if (choice.startsWith("status")) player.displayStatus();
-            player.checkDirectionChoice(choice);
+
+            //Check player dictionary
+            player.checkAction(choice);
 
         }
         System.out.println("ByeBye!");

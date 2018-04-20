@@ -18,6 +18,16 @@ public class Player extends Character implements ICollectionist {
         super(name, maxhp, maxStamina, currentRoom);
     }
 
+    //Check input action
+    public void checkAction(String choice) {
+            if (choice.startsWith("takeall")) takeAll();
+            else if (choice.startsWith("take")) takeObject(choice);
+            else if (choice.startsWith("dropall")) dropAll();
+            else if (choice.startsWith("drop")) dropObject(choice);
+            else if (choice.startsWith("status")) displayStatus();
+            else checkDirectionChoice(choice);
+            }
+
     //Check a string and execute the appropiate movement
     public void checkDirectionChoice(String choice) {
         switch (choice) {
