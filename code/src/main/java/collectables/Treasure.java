@@ -1,6 +1,8 @@
 package collectables;
 
-public abstract class Treasure {
+import behaviours.IFoundable;
+
+public abstract class Treasure implements IFoundable {
     String name;
     double value;
 

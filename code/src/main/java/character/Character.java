@@ -1,6 +1,7 @@
 package character;
 
 import behaviours.ICollectionist;
+import behaviours.IFoundable;
 import behaviours.IMovable;
 import behaviours.ITargetable;
 import collectables.Treasure;
@@ -9,7 +10,7 @@ import runner.TextColor;
 
 import java.util.ArrayList;
 
-public abstract class Character implements IMovable, ITargetable, ICollectionist {
+public abstract class Character implements IMovable, ITargetable, ICollectionist, IFoundable {
     private String name;
     private int maxhp;
     private int hp;
@@ -144,7 +145,7 @@ public abstract class Character implements IMovable, ITargetable, ICollectionist
     }
 
     public void dropAll() {
-        currentRoom.getTreasures().addAll(treasures);
+        if (treasures.size() >= 1) currentRoom.getTreasures().addAll(treasures);
         treasures.clear();
     }
 

@@ -1,3 +1,4 @@
+import character.non_player_character.NonPlayerCharacter;
 import character.player_character.Player;
 import collectables.CoinChest;
 import collectables.CoinType;
@@ -16,6 +17,7 @@ public class PlayerTest {
     private EntryRoom entryRoom;
     private EndRoom endRoom;
     private CoinChest chest;
+    private NonPlayerCharacter foe;
 
 
     @Before
@@ -26,6 +28,7 @@ public class PlayerTest {
         player2 = new Player("Frodo", 100, 50, entryRoom);
         entryRoom.setNorth(endRoom);
         chest = new CoinChest(100,CoinType.GOLD);
+        foe = new NonPlayerCharacter("Giant Spider");
 
     }
 
@@ -103,6 +106,18 @@ public class PlayerTest {
         player.takeObject("take Chest");
         assertEquals(0, entryRoom.getTreasures().size());
         assertEquals(1, player.getTreasures().size());
+    }
+
+    @Test
+    public void canKillMonster() {
+        player.setCurrenRoom(entryRoom);
+        entryRoom.addFoe(foe);
+        foe.addTreasure(chest);
+        assertEquals(1, entryRoom.getFoes().size());
+        player.kill("kill Spider");
+        assertEquals(0, entryRoom.getFoes().size());
+        assertEquals(1, entryRoom.getTreasures().size());
+
     }
 
 }

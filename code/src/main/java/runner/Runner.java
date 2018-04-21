@@ -24,7 +24,7 @@ public class Runner {
         entry.setSouth(treasure);
 
         treasure.addTreasure(chest);
-        treasure.addTreasure(chest2);
+        foe.addTreasure(chest2);
         monster.addFoe(foe);
         player.setCurrenRoom(treasure);
 

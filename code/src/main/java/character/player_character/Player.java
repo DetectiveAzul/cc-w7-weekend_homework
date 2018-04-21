@@ -1,6 +1,8 @@
 package character.player_character;
 
+import behaviours.IFoundable;
 import character.Character;
+import character.non_player_character.NonPlayerCharacter;
 import collectables.Treasure;
 import dungeon.Room;
 
@@ -20,6 +22,7 @@ public class Player extends Character {
     //Check input action
     public void checkAction(String choice) {
             if (choice.startsWith("takeall")) takeAll();
+            else if (choice.startsWith("kill")) kill(choice);
             else if (choice.startsWith("take")) takeObject(choice);
             else if (choice.startsWith("dropall")) dropAll();
             else if (choice.startsWith("drop")) dropObject(choice);
@@ -48,6 +51,10 @@ public class Player extends Character {
     }
 
     //Combat actions
+    public void kill(String foeString) {
+        NonPlayerCharacter foe = (NonPlayerCharacter) findByName(foeString, getCurrentRoom().getFoes());
+        foe.die();
+    }
 
     //Collection of items
 
@@ -66,45 +73,18 @@ public class Player extends Character {
     }
 
     public void takeObject(String action) {
-        //Split the string in two, and take the part without the web
-        String[] actionArray = action.split(" ", 2);
-        Treasure treasureToGet = null;
-
-        //Loop over the words to check if any of the words in the name is included on the array with the words from the action
-        firstLoop: for (Treasure treasure: getCurrentRoom().getTreasures()) {
-            for (String treasureWord: treasure.getName().split(" ")) {
-                if (Arrays.asList(actionArray[1].split(" ")).contains(treasureWord)) {
-                    treasureToGet = treasure;
-                    break firstLoop;
-                }
-            }
-        }
-
-        //Then if he found an object, this adds it to the player and removes from the room
-        if (treasureToGet != null) {
-            addTreasure(treasureToGet);
-            getCurrentRoom().removeTreasure(treasureToGet);
+        Treasure object = (Treasure) findByName(action, getCurrentRoom().getTreasures());
+        if (object != null) {
+            addTreasure(object);
+            getCurrentRoom().removeTreasure(object);
         }
     }
 
     public void dropObject(String action) {
-        //Split the string in two, and take the part without the web
-        String[] actionArray = action.split(" ", 2);
-        Treasure treasureToDrop = null;
-
-        //Loop over the words to check if any of the words in the name is included on the array with the words from the action
-        firstLoop: for (Treasure treasure: getTreasures()) {
-            for (String treasureWord: treasure.getName().split(" ")) {
-                if (Arrays.asList(actionArray[1].split(" ")).contains(treasureWord)) {
-                    treasureToDrop = treasure;
-                    break firstLoop;
-                }
-            }
-        }
-        //Then if he found an object, this adds it to the player and removes from the room
-        if (treasureToDrop != null) {
-            removeTreasure(treasureToDrop);
-            getCurrentRoom().addTreasure(treasureToDrop);
+        Treasure object = (Treasure) findByName(action, getTreasures());
+        if ( object != null) {
+            removeTreasure(object);
+            getCurrentRoom().addTreasure(object);
         }
     }
 
@@ -116,6 +96,22 @@ public class Player extends Character {
 
 
     //Special actions
+    private IFoundable findByName(String stringToLook, ArrayList<? extends IFoundable> arrayToLook) {
+        //Split the string in two, and take the part without the web
+        String[] stringArray = stringToLook.split(" ", 2);
+        IFoundable foundObject = null;
+
+        //Loop over the words to check if any of the words in the name is included on the array with the words from the action
+        firstLoop: for (IFoundable foundable: arrayToLook) {
+            for (String foundableWord: foundable.getName().split(" ")) {
+                if (Arrays.asList(stringArray[1].split(" ")).contains(foundableWord)) {
+                    foundObject = foundable;
+                    break firstLoop;
+                }
+            }
+        }
+        return foundObject;
+    }
 
 
 }

@@ -61,6 +61,7 @@ public abstract class Room {
 
     public void addFoe(NonPlayerCharacter foe) {
         foes.add(foe);
+        foe.setCurrenRoom(this);
     }
 
     public void removeFoe(NonPlayerCharacter foe) {
