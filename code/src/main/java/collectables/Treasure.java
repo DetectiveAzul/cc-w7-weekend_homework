@@ -18,4 +18,6 @@ public abstract class Treasure implements IFoundable {
     public double getValue() {
         return value;
     }
+
+    public void use() { }
 }

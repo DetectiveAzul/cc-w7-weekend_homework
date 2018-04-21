@@ -22,10 +22,11 @@ public class Player extends Character {
     //Check input action
     public void checkAction(String choice) {
             if (choice.startsWith("takeall")) takeAll();
-            else if (choice.startsWith("kill")) kill(choice);
             else if (choice.startsWith("take")) takeObject(choice);
             else if (choice.startsWith("dropall")) dropAll();
             else if (choice.startsWith("drop")) dropObject(choice);
+            else if (choice.startsWith("use")) use(choice);
+            else if (choice.startsWith("kill")) kill(choice);
             else if (choice.startsWith("status")) displayStatus();
             else checkDirectionChoice(choice);
             }
@@ -96,6 +97,18 @@ public class Player extends Character {
 
 
     //Special actions
+    public boolean use(String objectName) {
+        Treasure treasureToUse = (Treasure) findByName(objectName, getTreasures());
+        if (treasureToUse != null)
+        {
+            treasureToUse.use();
+            return true;
+        }
+        return false;
+    }
+
+
+    //This method is for looking for an object on an array by passing a string containing a verb and a name
     private IFoundable findByName(String stringToLook, ArrayList<? extends IFoundable> arrayToLook) {
         //Split the string in two, and take the part without the web
         String[] stringArray = stringToLook.split(" ", 2);

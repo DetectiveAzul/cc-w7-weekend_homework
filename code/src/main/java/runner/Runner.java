@@ -14,7 +14,7 @@ public class Runner {
         TreasureRoom treasure = new TreasureRoom("Treasure Room", "A small treasure room");
         EntryRoom entry = new EntryRoom("Dungeon Entrance", "Where the dungeon begins");
         MonsterRoom monster = new MonsterRoom("Boss Lair", "The house of a small green dragon");
-        EndRoom end = new EndRoom("The Exit", "If you have the key, you can escape");
+        EndRoom end = new EndRoom("The Exit", "If you have the key, you can 'use the key' to escape");
         CoinChest chest = new CoinChest(100, CoinType.GOLD);
         CoinChest chest2 = new CoinChest(100, CoinType.COPPER);
         NonPlayerCharacter foe = new NonPlayerCharacter("Giant Spider");

@@ -8,7 +8,9 @@ import dungeon.RoomType;
 import org.junit.Before;
 import org.junit.Test;
 
+import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 
 public class PlayerTest {
@@ -118,6 +120,13 @@ public class PlayerTest {
         assertEquals(0, entryRoom.getFoes().size());
         assertEquals(1, entryRoom.getTreasures().size());
 
+    }
+
+    @Test
+    public void canUse() {
+        player.addTreasure(chest);
+        assertTrue(player.use("use Chest"));
+        assertFalse(player.use("use key"));
     }
 
 }
