@@ -192,4 +192,17 @@ public class PlayerTest {
         assertEquals("Dagger", player.getPrimaryTool().getName());
     }
 
+    @Test
+    public void canUnWieldTool() {
+        player.use(sword);
+        sword.unWield(player);
+        assertEquals(1, player.getTreasures().size());
+    }
+
+    @Test
+    public void canUnWieldToolFromPLayer() {
+        player.use(sword);
+        player.savePrimaryTool();
+        assertEquals(1, player.getTreasures().size());
+    }
 }

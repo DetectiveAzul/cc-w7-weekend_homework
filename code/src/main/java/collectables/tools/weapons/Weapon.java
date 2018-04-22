@@ -18,4 +18,9 @@ public class Weapon extends Treasure implements IWieldable {
         character.removeTreasure(this);
     }
 
+    public void unWield(Character character) {
+        character.setPrimaryTool(null);
+        character.addTreasure(this);
+    }
+
 }

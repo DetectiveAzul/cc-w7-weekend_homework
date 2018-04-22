@@ -5,6 +5,7 @@ import character.player_character.Player;
 import collectables.CoinChest;
 import collectables.CoinType;
 import collectables.Key;
+import collectables.tools.weapons.Weapon;
 import dungeon.*;
 import engine.Game;
 
@@ -21,10 +22,15 @@ public class Runner {
         CoinChest chest2 = new CoinChest(100, CoinType.COPPER);
         NonPlayerCharacter foe = new NonPlayerCharacter("Giant Spider");
         Key key = new Key("Golden", end);
+        Weapon sword = new Weapon("Long Sword", 5);
+        Weapon dagger = new Weapon("Dagger", 5);
+
 
 
         entry.setNorth(monster);
         entry.setSouth(treasure);
+        entry.addTreasure(sword);
+        entry.addTreasure(dagger);
         monster.setWest(end);
 
         treasure.addTreasure(chest);

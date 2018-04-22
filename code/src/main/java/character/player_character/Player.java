@@ -1,7 +1,6 @@
 package character.player_character;
 
 import behaviours.IFoundable;
-import behaviours.IWieldable;
 import character.Character;
 import character.non_player_character.NonPlayerCharacter;
 import collectables.Treasure;
@@ -23,6 +22,7 @@ public class Player extends Character {
     //Check input action
     public void checkAction(String choice) {
             if (choice.startsWith("takeall")) takeAll();
+            if (choice.startsWith("unwield")) savePrimaryTool();
             else if (choice.startsWith("take")) takeObject(choice);
             else if (choice.startsWith("dropall")) dropAll();
             else if (choice.startsWith("drop")) dropObject(choice);
@@ -53,6 +53,10 @@ public class Player extends Character {
     }
 
     //Combat actions
+    public void savePrimaryTool() {
+        if (getPrimaryTool() != null) getPrimaryTool().unWield(this);
+    }
+
     public void kill(String foeString) {
         NonPlayerCharacter foe = (NonPlayerCharacter) findByName(foeString, getCurrentRoom().getFoes());
         foe.die();
