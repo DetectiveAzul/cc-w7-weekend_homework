@@ -43,7 +43,7 @@ public class FirstLevel {
                 " cells. They are now empty. Where are the rest of the prisoners? You can smell fresh blood from one" +
                 " of the two other open cells.");
 
-        cell01 = new TreasureRoom( "Cell", "A moody, humid and dirty cell, like yours. The body of a" +
+        cell01 = new TreasureRoom( "Cell", "A muddy, humid and dirty cell, like yours. The body of a" +
                 " dead guard is in the floor. You can guess that's the reason of your recently gained freedom. " +
                 " It is possible the prisoner sleeping here caught the guard and kill it.");
 
@@ -53,7 +53,7 @@ public class FirstLevel {
         cell01.addTreasure(dagger);
 
 
-        cell02 = new TreasureRoom( "Cell", "A moody, humid and dirty cell, like yours. In the last" +
+        cell02 = new TreasureRoom( "Cell", "A muddy, humid and dirty cell, like yours. In the last" +
                 " few days you saw a Dwarf, dying like you. But nobody is here now.");
 
         potion = new Potion("Small Gloomy Red", false, 5);
