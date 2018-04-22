@@ -16,6 +16,7 @@ public abstract class Character implements IMovable, ITargetable, ICollectionist
     private Room currentRoom;
     private IWieldable primaryTool;
     private ArrayList<Treasure> treasures;
+    private boolean dead;
 
 
     public Character(String name) {
@@ -25,6 +26,7 @@ public abstract class Character implements IMovable, ITargetable, ICollectionist
         this.maxStamina = 0;
         this.stamina = maxStamina;
         this.treasures = new ArrayList<>();
+        this.dead = false;
 
     }
 
@@ -36,6 +38,7 @@ public abstract class Character implements IMovable, ITargetable, ICollectionist
         this.stamina = maxStamina;
         this.currentRoom = currentRoom;
         this.treasures = new ArrayList<>();
+        this.dead = false;
 
     }
 
@@ -57,6 +60,14 @@ public abstract class Character implements IMovable, ITargetable, ICollectionist
 
     public int getMaxStamina() {
         return maxStamina;
+    }
+
+    public boolean isDead() {
+        return dead;
+    }
+
+    public void setDead(boolean dead) {
+        this.dead = dead;
     }
 
     //Primary tool getter/setter

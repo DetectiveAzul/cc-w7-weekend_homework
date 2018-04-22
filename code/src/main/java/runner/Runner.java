@@ -24,28 +24,32 @@ public class Runner {
         CoinChest chest2 = new CoinChest(100, CoinType.COPPER);
         NonPlayerCharacter foe = new NonPlayerCharacter("Giant Spider");
         Key key = new Key("Golden", end);
-        Weapon sword = new Weapon("Long Sword", 5, 10);
-        Weapon dagger = new Weapon("Dagger", 5, 5);
+        Weapon sword = new Weapon("Long Sword", 5, 8);
+        Weapon dagger = new Weapon("Dagger", 5, 4);
         Potion poison = new Potion("Green", true, 15);
 
 
 
         entry.setNorth(monster);
         entry.setSouth(treasure);
-        entry.addTreasure(sword);
-        entry.addTreasure(dagger);
         entry.addTreasure(poison);
         monster.setWest(end);
 
         treasure.addTreasure(chest);
         foe.addTreasure(chest2);
         foe.addTreasure(key);
+        foe.setPrimaryTool(dagger);
         monster.addFoe(foe);
-        player.setCurrenRoom(treasure);
+        player.setCurrenRoom(entry);
+        player.setPrimaryTool(sword);
 
         boolean win = false;
         while(!win) {
+            //Check win or dead condition
+            win = Game.checkWin(end);
+            if (player.isDead()) break;
 
+            //Display everything
             System.out.println(TextColor.BLUE.getAnsiiCode() + player.getCurrentRoom().getName());
             System.out.println();
             System.out.println(TextColor.CYAN.getAnsiiCode() + player.getCurrentRoom().getDescription());
@@ -70,11 +74,8 @@ public class Runner {
             //Check player dictionary
             player.checkAction(choice);
 
-            //Check win or dead condition
-            win = Game.checkWin(end);
-            if (player.isDead()) break;
-
         }
+
         if (win) System.out.println("You Won!");
         if (player.getHp() <= 0 ) System.out.println("You Died. GAME OVER");
         System.out.println("ByeBye!");

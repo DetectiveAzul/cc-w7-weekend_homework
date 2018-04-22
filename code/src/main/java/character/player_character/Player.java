@@ -5,31 +5,22 @@ import character.Character;
 import character.non_player_character.NonPlayerCharacter;
 import collectables.Treasure;
 import dungeon.Room;
+import engine.Combat;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Player extends Character {
-    private boolean dead;
 
     public Player(String name) {
         super(name);
-        this.dead = false;
     }
 
     public Player(String name, int maxhp, int maxStamina, Room currentRoom) {
         super(name, maxhp, maxStamina, currentRoom);
-        this.dead = false;
     }
 
     //Getters and setters
-    public boolean isDead() {
-        return dead;
-    }
-
-    public void setDead(boolean dead) {
-        this.dead = dead;
-    }
 
     public void die() {
         setDead(true);
@@ -43,6 +34,7 @@ public class Player extends Character {
             else if (choice.startsWith("dropall")) dropAll();
             else if (choice.startsWith("drop")) dropObject(choice);
             else if (choice.startsWith("use")) use(choice);
+            else if (choice.startsWith("attack")) attack(choice);
             else if (choice.startsWith("kill")) kill(choice);
             else if (choice.startsWith("status")) displayStatus();
             else checkDirectionChoice(choice);
@@ -76,6 +68,12 @@ public class Player extends Character {
     public void kill(String foeString) {
         NonPlayerCharacter foe = (NonPlayerCharacter) findByName(foeString, getCurrentRoom().getFoes());
         foe.die();
+    }
+
+    public void attack(String foeString) {
+        NonPlayerCharacter foe = (NonPlayerCharacter) findByName(foeString, getCurrentRoom().getFoes());
+        if (this.getPrimaryTool() != null) {
+            Combat.BeginCombat(this, foe); }
     }
 
     //Collection of items

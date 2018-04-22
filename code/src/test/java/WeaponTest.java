@@ -3,6 +3,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class WeaponTest {
     private Weapon sword;
@@ -18,4 +19,17 @@ public class WeaponTest {
     public void hasDamage() {
         assertEquals(10, sword.getDamage());
     }
+
+    @Test
+    public void hasDamageDie() {
+        assertEquals(5, dagger.getDamageDie().size() );
+        assertEquals(10, sword.getDamageDie().size() );
+    }
+
+    @Test
+    public void canRollDie() {
+        int result = 6;
+        assertTrue(result > dagger.rollDamageDie());
+    }
+
 }

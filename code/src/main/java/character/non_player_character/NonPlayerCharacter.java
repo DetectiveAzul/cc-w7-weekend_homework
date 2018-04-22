@@ -15,5 +15,6 @@ public class NonPlayerCharacter extends Character {
         dropAll();
         getCurrentRoom().removeFoe(this);
         setCurrenRoom(null);
+        setDead(true);
     }
 }
