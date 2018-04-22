@@ -9,6 +9,7 @@ import collectables.tools.weapons.Weapon;
 import dungeon.*;
 import engine.Game;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Runner {
@@ -47,12 +48,13 @@ public class Runner {
             System.out.println(TextColor.CYAN.getAnsiiCode() + player.getCurrentRoom().getDescription());
             System.out.println();
             System.out.println(TextColor.PURPLE.getAnsiiCode() + player.getCurrentRoom().displayTreasures());
+            System.out.println(TextColor.PURPLE.getAnsiiCode() + player.displayHand());
             System.out.println(TextColor.PURPLE.getAnsiiCode() + player.displayTreasures());
             System.out.println();
             System.out.println(TextColor.GREEN.getAnsiiCode() + player.getCurrentRoom().displayFoes());
             System.out.println();
             System.out.println(TextColor.YELLOW.getAnsiiCode() + player.getCurrentRoom().getExitsAvailable());
-            System.out.println();
+            player.displayStatus();
             System.out.println(TextColor.RESET.getAnsiiCode() + "What are you doing?");
 
             //User Input

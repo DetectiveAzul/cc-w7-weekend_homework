@@ -78,6 +78,11 @@ public class Player extends Character {
         return "You have on your inventory: " + joinedString;
     }
 
+    public String displayHand() {
+        if (getPrimaryTool() == null) return "Nothing on your hands";
+        return "You're wielding: " + getPrimaryTool().getName();
+    }
+
     public void takeObject(String action) {
         Treasure object = (Treasure) findByName(action, getCurrentRoom().getTreasures());
         if (object != null) {
