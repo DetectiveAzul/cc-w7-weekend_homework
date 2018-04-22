@@ -102,6 +102,7 @@ public class Player extends Character {
         if (treasureToUse != null)
         {
             treasureToUse.use(this);
+            //Return true or false if he is able to use the object
             return true;
         }
         return false;

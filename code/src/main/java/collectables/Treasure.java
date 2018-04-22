@@ -21,6 +21,7 @@ public abstract class Treasure implements IFoundable, IUsable {
         return value;
     }
 
+    //Display default use for the object
     public void use(Character character) {
         System.out.println("You don't know how to use " + getName());
     }

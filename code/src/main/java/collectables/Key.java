@@ -14,6 +14,7 @@ public class Key extends Treasure {
         return roomToOpen;
     }
 
+    //Check is player is in the roomToOpen, and then unlocks it if it is true
     public void use(Character character) {
         if (character.getCurrentRoom() == getRoomToOpen()) {
             character.removeTreasure(this);
