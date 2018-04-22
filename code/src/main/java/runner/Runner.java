@@ -5,6 +5,7 @@ import character.player_character.Player;
 import collectables.CoinChest;
 import collectables.CoinType;
 import collectables.Key;
+import collectables.tools.consumables.Potion;
 import collectables.tools.weapons.Weapon;
 import dungeon.*;
 import engine.Game;
@@ -25,6 +26,7 @@ public class Runner {
         Key key = new Key("Golden", end);
         Weapon sword = new Weapon("Long Sword", 5, 10);
         Weapon dagger = new Weapon("Dagger", 5, 5);
+        Potion poison = new Potion("Green", true, 15);
 
 
 
@@ -32,6 +34,7 @@ public class Runner {
         entry.setSouth(treasure);
         entry.addTreasure(sword);
         entry.addTreasure(dagger);
+        entry.addTreasure(poison);
         monster.setWest(end);
 
         treasure.addTreasure(chest);
@@ -67,8 +70,9 @@ public class Runner {
             //Check player dictionary
             player.checkAction(choice);
 
-            //Check winning condition
+            //Check win or dead condition
             win = Game.checkWin(end);
+            if (player.isDead()) break;
 
         }
         if (win) System.out.println("You Won!");
