@@ -10,10 +10,10 @@ import collectables.tools.weapons.Weapon;
 import dungeon.*;
 import engine.Game;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
-public class Runner {
+public class TestLevel {
+
     public static void main(String[] args) {
         Player player = new Player("Cian");
         TreasureRoom treasure = new TreasureRoom("Treasure Room", "A small treasure room");
