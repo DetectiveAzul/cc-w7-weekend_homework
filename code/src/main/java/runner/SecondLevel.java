@@ -45,7 +45,7 @@ public class SecondLevel {
 
         hallway = new MonsterRoom( "Hallway to your freedom", "A long hallway leading to the guard" +
                 " room. After that room, you know for sure that the exit is waiting for you. There are some objects in this" +
-                "room that could be useful for you before your fight. 'use' a Potion could it be useful");
+                " room that could be useful for you before your fight. 'use' a Potion could it be useful");
 
         boss = new MonsterRoom( "Guard Room", "There is it. You're hiding between some boxes, you know" +
                 "you can go through this room without being seen. The other door in front of you is fully open, maybe" +
