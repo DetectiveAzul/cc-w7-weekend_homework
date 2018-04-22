@@ -33,7 +33,7 @@ public class FirstLevel {
         entry = new EntryRoom(
                 "Dark Cell", "This is a very dark cell inside the inner dungeons" +
                 " of Lady Myylthik. You were thrown here... some weeks ago after your city was conquered" +
-                " by her minions. Walls are humid, the smell in here is awful and, and two days have passed" +
+                " by her minions. Walls are humid, the smell in here is awful, and two days have passed" +
                 " since you received your last meal. For some reason, your door is open. When did it happen?");
 
         end = new EndRoom("Stairs", "This stairs lead your way onto the ground levels. There is" +
