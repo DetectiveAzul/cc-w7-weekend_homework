@@ -64,9 +64,7 @@ public class Runner {
 
         }
         if (win) System.out.println("You Won!");
+        if (player.getHp() <= 0 ) System.out.println("You Died. GAME OVER");
         System.out.println("ByeBye!");
-
-
-
     }
 }
