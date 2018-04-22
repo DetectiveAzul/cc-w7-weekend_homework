@@ -1,8 +1,9 @@
 package collectables;
 
 import behaviours.IFoundable;
+import behaviours.IUsable;
 
-public abstract class Treasure implements IFoundable {
+public abstract class Treasure implements IFoundable, IUsable {
     String name;
     double value;
 
@@ -19,5 +20,7 @@ public abstract class Treasure implements IFoundable {
         return value;
     }
 
-    public void use() { }
+    public void use() {
+        System.out.println("You don't know how to use " + getName());
+    }
 }
