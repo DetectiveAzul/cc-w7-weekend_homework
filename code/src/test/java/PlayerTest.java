@@ -2,6 +2,7 @@ import character.non_player_character.NonPlayerCharacter;
 import character.player_character.Player;
 import collectables.CoinChest;
 import collectables.CoinType;
+import collectables.Key;
 import dungeon.EndRoom;
 import dungeon.EntryRoom;
 import dungeon.RoomType;
@@ -20,6 +21,7 @@ public class PlayerTest {
     private EndRoom endRoom;
     private CoinChest chest;
     private NonPlayerCharacter foe;
+    private Key key;
 
 
     @Before
@@ -31,6 +33,7 @@ public class PlayerTest {
         entryRoom.setNorth(endRoom);
         chest = new CoinChest(100,CoinType.GOLD);
         foe = new NonPlayerCharacter("Giant Spider");
+        key = new Key("Golden", endRoom);
 
     }
 
@@ -125,8 +128,14 @@ public class PlayerTest {
     @Test
     public void canUse() {
         player.addTreasure(chest);
-        assertTrue(player.use("use Chest"));
-        assertFalse(player.use("use key"));
+        assertTrue(player.use("Chest"));
+        assertFalse(player.use("Key"));
+    }
+
+    @Test
+    public void canUseKey() {
+        player.addTreasure(key);
+        assertTrue(player.use("Key"));
     }
 
 }

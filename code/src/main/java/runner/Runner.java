@@ -4,6 +4,7 @@ import character.non_player_character.NonPlayerCharacter;
 import character.player_character.Player;
 import collectables.CoinChest;
 import collectables.CoinType;
+import collectables.Key;
 import dungeon.*;
 
 import java.util.Scanner;
@@ -18,6 +19,7 @@ public class Runner {
         CoinChest chest = new CoinChest(100, CoinType.GOLD);
         CoinChest chest2 = new CoinChest(100, CoinType.COPPER);
         NonPlayerCharacter foe = new NonPlayerCharacter("Giant Spider");
+        Key key = new Key("Golden", end);
 
 
         entry.setNorth(monster);
@@ -25,6 +27,7 @@ public class Runner {
 
         treasure.addTreasure(chest);
         foe.addTreasure(chest2);
+        foe.addTreasure(key);
         monster.addFoe(foe);
         player.setCurrenRoom(treasure);
 

@@ -2,6 +2,7 @@ package collectables;
 
 import behaviours.IFoundable;
 import behaviours.IUsable;
+import character.Character;
 
 public abstract class Treasure implements IFoundable, IUsable {
     String name;
@@ -20,7 +21,7 @@ public abstract class Treasure implements IFoundable, IUsable {
         return value;
     }
 
-    public void use() {
+    public void use(Character character) {
         System.out.println("You don't know how to use " + getName());
     }
 }

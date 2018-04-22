@@ -101,7 +101,7 @@ public class Player extends Character {
         Treasure treasureToUse = (Treasure) findByName(objectName, getTreasures());
         if (treasureToUse != null)
         {
-            treasureToUse.use();
+            treasureToUse.use(this);
             return true;
         }
         return false;
@@ -110,14 +110,14 @@ public class Player extends Character {
 
     //This method is for looking for an object on an array by passing a string containing a verb and a name
     private IFoundable findByName(String stringToLook, ArrayList<? extends IFoundable> arrayToLook) {
-        //Split the string in two, and take the part without the web
-        String[] stringArray = stringToLook.split(" ", 2);
+        //Split the string to look in individual words
+        String[] stringArray = stringToLook.split(" ");
         IFoundable foundObject = null;
 
         //Loop over the words to check if any of the words in the name is included on the array with the words from the action
         firstLoop: for (IFoundable foundable: arrayToLook) {
             for (String foundableWord: foundable.getName().split(" ")) {
-                if (Arrays.asList(stringArray[1].split(" ")).contains(foundableWord)) {
+                if (Arrays.asList(stringArray).contains(foundableWord)) {
                     foundObject = foundable;
                     break firstLoop;
                 }
