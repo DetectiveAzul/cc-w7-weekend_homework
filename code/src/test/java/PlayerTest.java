@@ -73,6 +73,25 @@ public class PlayerTest {
     }
 
     @Test
+    public void cannotTakeMoreThanMaxHPDamage() {
+        player2.takeDamage(1000);
+        assertEquals(0, player2.getHp());
+    }
+
+    @Test
+    public void canHeal() {
+        player2.takeDamage(10);
+        player2.takeHealing(10);
+        assertEquals(100, player2.getHp());
+    }
+
+    @Test
+    public void cannotHealOverMaxHP() {
+        player2.takeHealing(1000);
+        assertEquals(100, player2.getHp());
+    }
+
+    @Test
     public void canMove() {
         player.setCurrenRoom(entryRoom);
         player.goNorth();

@@ -26,4 +26,12 @@ public class CommonNPCPropertiesTest {
         assertEquals(0, monster.getFoes().size());
         assertEquals(1, monster.getTreasures().size());
     }
+
+    @Test
+    public void canDieIfTakeEnoughDamage() {
+        foe.takeDamage(10000);
+        assertEquals(0, monster.getFoes().size());
+        assertEquals(1, monster.getTreasures().size());
+
+    }
 }

@@ -11,7 +11,13 @@ public class NonPlayerCharacter extends Character {
         super(name, maxhp, maxStamina, currentRoom);
     }
 
-    public void die() {
+    public void takeDamage(int damage) {
+        super.takeDamage(damage);
+        if (getHp() <= 0) die();
+
+    }
+
+        public void die() {
         dropAll();
         getCurrentRoom().removeFoe(this);
         setCurrenRoom(null);
