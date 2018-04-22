@@ -3,6 +3,7 @@ import character.player_character.Player;
 import collectables.CoinChest;
 import collectables.CoinType;
 import collectables.Key;
+import collectables.tools.consumables.Potion;
 import dungeon.EndRoom;
 import dungeon.EntryRoom;
 import dungeon.RoomType;
@@ -22,6 +23,8 @@ public class PlayerTest {
     private CoinChest chest;
     private NonPlayerCharacter foe;
     private Key key;
+    private Potion hpotion;
+
 
 
     @Before
@@ -34,6 +37,7 @@ public class PlayerTest {
         chest = new CoinChest(100,CoinType.GOLD);
         foe = new NonPlayerCharacter("Giant Spider");
         key = new Key("Golden", endRoom);
+        hpotion = new Potion("Red", false, 5);
 
     }
 
@@ -155,6 +159,13 @@ public class PlayerTest {
     public void canUseKey() {
         player.addTreasure(key);
         assertTrue(player.use("Key"));
+    }
+
+    @Test
+    public void playerUsesPotion() {
+        player.addTreasure(hpotion);
+        player.use("Potion");
+        assertEquals(0, player.getTreasures().size());
     }
 
 }
