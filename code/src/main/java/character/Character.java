@@ -146,9 +146,19 @@ public abstract class Character implements IMovable, ITargetable, ICollectionist
         treasures.remove(treasure);
     }
 
+    public void takeAll() {
+        getTreasures().addAll(getCurrentRoom().getTreasures());
+        getCurrentRoom().getTreasures().clear();
+    }
+
     public void dropAll() {
         if (treasures.size() >= 1) currentRoom.getTreasures().addAll(treasures);
         treasures.clear();
     }
+
+    public void use(Treasure treasure) {
+        treasure.use(this);
+    }
+
 
 }

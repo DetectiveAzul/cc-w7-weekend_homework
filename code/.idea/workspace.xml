@@ -33,10 +33,24 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="NonPlayerCharacter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/character/non_player_character/NonPlayerCharacter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#187#188#0" expanded="true" />
+                <element signature="e#214#215#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Potion.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/collectables/tools/consumables/Potion.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3">
+            <state relative-caret-position="36">
               <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -75,11 +89,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PlayerTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PlayerTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/PlayerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="169" lean-forward="true" selection-start-line="169" selection-end-line="169" />
+            <state relative-caret-position="255">
+              <caret line="171" lean-forward="true" selection-start-line="171" selection-end-line="171" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -87,11 +101,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Player.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/character/player_character/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1496">
-              <caret line="104" column="66" selection-start-line="104" selection-start-column="66" selection-end-line="104" selection-end-column="66" />
+            <state relative-caret-position="603">
+              <caret line="97" column="31" selection-start-line="97" selection-start-column="31" selection-end-line="97" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -102,12 +116,14 @@
       <file leaf-file-name="Character.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/character/Character.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1057">
-              <caret line="94" selection-start-line="94" selection-end-line="95" />
+            <state relative-caret-position="325">
+              <caret line="161" selection-start-line="161" selection-end-line="161" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1484#1485#0" expanded="true" />
                 <element signature="e#1518#1519#0" expanded="true" />
+                <element signature="e#4036#4037#0" expanded="true" />
+                <element signature="e#4070#4071#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -449,16 +465,16 @@
         <option value="$PROJECT_DIR$/src/main/java/engine/Game.java" />
         <option value="$PROJECT_DIR$/src/test/java/GameTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/behaviours/IUsable.java" />
-        <option value="$PROJECT_DIR$/src/main/java/character/player_character/Player.java" />
         <option value="$PROJECT_DIR$/src/main/java/collectables/Key.java" />
         <option value="$PROJECT_DIR$/src/main/java/collectables/Treasure.java" />
         <option value="$PROJECT_DIR$/src/main/java/runner/Runner.java" />
-        <option value="$PROJECT_DIR$/src/main/java/character/Character.java" />
         <option value="$PROJECT_DIR$/src/main/java/character/non_player_character/NonPlayerCharacter.java" />
         <option value="$PROJECT_DIR$/src/test/java/CommonNPCPropertiesTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/collectables/tools/consumables/Potion.java" />
         <option value="$PROJECT_DIR$/src/test/java/PotionTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/PlayerTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/character/Character.java" />
+        <option value="$PROJECT_DIR$/src/main/java/character/player_character/Player.java" />
       </list>
     </option>
   </component>
@@ -548,6 +564,16 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="collectables" type="462c0819:PsiDirectoryNode" />
               <item name="tools" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FantasyAdventure" type="b2602c69:ProjectViewProjectNode" />
+              <item name="code" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="collectables" type="462c0819:PsiDirectoryNode" />
+              <item name="tools" type="462c0819:PsiDirectoryNode" />
+              <item name="consumables" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="FantasyAdventure" type="b2602c69:ProjectViewProjectNode" />
@@ -748,12 +774,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_FantasyAdventure_test - 2018.04.22 at 14h 01m 35s.xml">
-      <configuration name="All in FantasyAdventure_test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_FantasyAdventure_test - 2018.04.22 at 14h 01m 54s.xml">
-      <configuration name="All in FantasyAdventure_test" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="All_in_FantasyAdventure_test - 2018.04.22 at 14h 03m 32s.xml">
       <configuration name="All in FantasyAdventure_test" configurationId="JUnit" />
     </history-entry>
@@ -776,6 +796,12 @@
       <configuration name="All in FantasyAdventure_test" configurationId="JUnit" />
     </history-entry>
     <history-entry file="All_in_FantasyAdventure_test - 2018.04.22 at 14h 49m 05s.xml">
+      <configuration name="All in FantasyAdventure_test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_FantasyAdventure_test - 2018.04.22 at 14h 51m 12s.xml">
+      <configuration name="All in FantasyAdventure_test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_FantasyAdventure_test - 2018.04.22 at 15h 11m 12s.xml">
       <configuration name="All in FantasyAdventure_test" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -1189,40 +1215,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/character/non_player_character/NonPlayerCharacter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#187#188#0" expanded="true" />
-            <element signature="e#214#215#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/character/Character.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1057">
-          <caret line="94" selection-start-line="94" selection-end-line="95" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1484#1485#0" expanded="true" />
-            <element signature="e#1518#1519#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/character/player_character/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1496">
-          <caret line="104" column="66" selection-start-line="104" selection-start-column="66" selection-end-line="104" selection-end-column="66" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/collectables/Key.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1245,20 +1237,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/collectables/tools/consumables/Potion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#395#396#0" expanded="true" />
-            <element signature="e#423#424#0" expanded="true" />
-            <element signature="e#459#460#0" expanded="true" />
-            <element signature="e#491#492#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/PotionTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
@@ -1273,8 +1251,58 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/PlayerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="169" lean-forward="true" selection-start-line="169" selection-end-line="169" />
+        <state relative-caret-position="255">
+          <caret line="171" lean-forward="true" selection-start-line="171" selection-end-line="171" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/collectables/tools/consumables/Potion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#395#396#0" expanded="true" />
+            <element signature="e#423#424#0" expanded="true" />
+            <element signature="e#459#460#0" expanded="true" />
+            <element signature="e#491#492#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/character/non_player_character/NonPlayerCharacter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#187#188#0" expanded="true" />
+            <element signature="e#214#215#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/character/Character.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="161" selection-start-line="161" selection-end-line="161" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1484#1485#0" expanded="true" />
+            <element signature="e#1518#1519#0" expanded="true" />
+            <element signature="e#4036#4037#0" expanded="true" />
+            <element signature="e#4070#4071#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/character/player_character/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="603">
+          <caret line="97" column="31" selection-start-line="97" selection-start-column="31" selection-end-line="97" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

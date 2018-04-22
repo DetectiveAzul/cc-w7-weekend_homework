@@ -89,25 +89,17 @@ public class Player extends Character {
         }
     }
 
-    public void takeAll() {
-        getTreasures().addAll(getCurrentRoom().getTreasures());
-        getCurrentRoom().getTreasures().clear();
-    }
-
-
 
     //Special actions
     public boolean use(String objectName) {
         Treasure treasureToUse = (Treasure) findByName(objectName, getTreasures());
         if (treasureToUse != null)
         {
-            treasureToUse.use(this);
-            //Return true or false if he is able to use the object
+            use(treasureToUse);
             return true;
         }
         return false;
     }
-
 
     //This method is for looking for an object on an array by passing a string containing a verb and a name
     private IFoundable findByName(String stringToLook, ArrayList<? extends IFoundable> arrayToLook) {
