@@ -13,15 +13,15 @@ import engine.Game;
 import java.util.Scanner;
 
 public class FirstLevel {
-    public EndRoom end;
-    public EntryRoom entry;
-    public Player player;
-    public MonsterRoom hallway;
-    public TreasureRoom cell01;
-    public TreasureRoom cell02;
-    public Key key;
-    public Weapon dagger;
-    public Potion potion;
+    private EndRoom end;
+    private EntryRoom entry;
+    private Player player;
+    private MonsterRoom hallway;
+    private TreasureRoom cell01;
+    private TreasureRoom cell02;
+    private Key key;
+    private Weapon dagger;
+    private Potion potion;
 
 
     public FirstLevel() {
@@ -68,41 +68,38 @@ public class FirstLevel {
         hallway.setNorth(end);
 
     }
-    public static void main(String[] args) {
-        FirstLevel level = new FirstLevel();
 
+    public Player levelRunner() {
         boolean win = false;
         while(!win) {
             //Display everything
-            System.out.println(TextColor.BLUE.getAnsiiCode() + level.player.getCurrentRoom().getName());
+            System.out.println(TextColor.BLUE.getAnsiiCode() + player.getCurrentRoom().getName());
             System.out.println();
-            System.out.println(TextColor.CYAN.getAnsiiCode() + level.player.getCurrentRoom().getDescription());
+            System.out.println(TextColor.CYAN.getAnsiiCode() + player.getCurrentRoom().getDescription());
             System.out.println();
-            System.out.println(TextColor.PURPLE.getAnsiiCode() + level.player.getCurrentRoom().displayTreasures());
-            System.out.println(TextColor.PURPLE.getAnsiiCode() + level.player.displayHand());
-            System.out.println(TextColor.PURPLE.getAnsiiCode() + level.player.displayTreasures());
+            System.out.println(TextColor.PURPLE.getAnsiiCode() + player.getCurrentRoom().displayTreasures());
+            System.out.println(TextColor.PURPLE.getAnsiiCode() + player.displayHand());
+            System.out.println(TextColor.PURPLE.getAnsiiCode() + player.displayTreasures());
             System.out.println();
-            System.out.println(TextColor.GREEN.getAnsiiCode() + level.player.getCurrentRoom().displayFoes());
+            System.out.println(TextColor.GREEN.getAnsiiCode() + player.getCurrentRoom().displayFoes());
             System.out.println();
-            System.out.println(TextColor.YELLOW.getAnsiiCode() + level.player.getCurrentRoom().getExitsAvailable());
-            level.player.displayStatus();
+            System.out.println(TextColor.YELLOW.getAnsiiCode() + player.getCurrentRoom().getExitsAvailable());
+            player.displayStatus();
             System.out.println(TextColor.RESET.getAnsiiCode() + "What will you do?");
 
             //User Input
             Scanner user_input = new Scanner(System.in);
             String choice = user_input.nextLine();
 
-            //Check for break condition
-            if (choice.startsWith("exit")) break;
-
             //Check player dictionary
-            level.player.checkAction(choice);
+            player.checkAction(choice);
 
             //Check win or dead condition
-            win = Game.checkWin(level.end);
-            if (level.player.isDead()) break;
+            win = Game.checkWin(end);
+            if (player.isDead()) break;
         }
 
-        if (level.player.getHp() <= 0 ) System.out.println("You Died. GAME OVER");
+        if (player.getHp() <= 0 ) System.out.println("You Died. GAME OVER");
+        return player;
     }
 }

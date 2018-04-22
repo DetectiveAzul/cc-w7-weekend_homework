@@ -35,8 +35,9 @@ public class Player extends Character {
             else if (choice.startsWith("drop")) dropObject(choice);
             else if (choice.startsWith("use")) use(choice);
             else if (choice.startsWith("attack")) attack(choice);
-            else if (choice.startsWith("kill")) kill(choice);
+//            else if (choice.startsWith("kill")) kill(choice);
             else if (choice.startsWith("status")) displayStatus();
+            else if (choice.startsWith("exit")) System.exit(0);
             else checkDirectionChoice(choice);
             }
 

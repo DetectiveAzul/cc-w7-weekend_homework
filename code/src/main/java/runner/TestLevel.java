@@ -68,9 +68,6 @@ public class TestLevel {
             Scanner user_input = new Scanner(System.in);
             String choice = user_input.nextLine();
 
-            //Check for break condition
-            if (choice.startsWith("exit")) break;
-
             //Check player dictionary
             player.checkAction(choice);
 
