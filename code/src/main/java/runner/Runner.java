@@ -6,6 +6,7 @@ import collectables.CoinChest;
 import collectables.CoinType;
 import collectables.Key;
 import dungeon.*;
+import engine.Game;
 
 import java.util.Scanner;
 
@@ -24,6 +25,7 @@ public class Runner {
 
         entry.setNorth(monster);
         entry.setSouth(treasure);
+        monster.setWest(end);
 
         treasure.addTreasure(chest);
         foe.addTreasure(chest2);
@@ -31,8 +33,8 @@ public class Runner {
         monster.addFoe(foe);
         player.setCurrenRoom(treasure);
 
-        boolean game = true;
-        while(game) {
+        boolean win = false;
+        while(!win) {
 
             System.out.println(TextColor.BLUE.getAnsiiCode() + player.getCurrentRoom().getName());
             System.out.println();
@@ -57,7 +59,11 @@ public class Runner {
             //Check player dictionary
             player.checkAction(choice);
 
+            //Check winning condition
+            win = Game.checkWin(end);
+
         }
+        if (win) System.out.println("You Won!");
         System.out.println("ByeBye!");
 
 
