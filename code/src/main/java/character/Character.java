@@ -1,9 +1,6 @@
 package character;
 
-import behaviours.ICollectionist;
-import behaviours.IFoundable;
-import behaviours.IMovable;
-import behaviours.ITargetable;
+import behaviours.*;
 import collectables.Treasure;
 import dungeon.Room;
 import runner.TextColor;
@@ -17,6 +14,7 @@ public abstract class Character implements IMovable, ITargetable, ICollectionist
     private int maxStamina;
     private int stamina;
     private Room currentRoom;
+    private IWieldable primaryTool;
     private ArrayList<Treasure> treasures;
 
 
@@ -59,6 +57,17 @@ public abstract class Character implements IMovable, ITargetable, ICollectionist
 
     public int getMaxStamina() {
         return maxStamina;
+    }
+
+    //Primary tool getter/setter
+
+
+    public IWieldable getPrimaryTool() {
+        return primaryTool;
+    }
+
+    public void setPrimaryTool(IWieldable primaryTool) {
+        this.primaryTool = primaryTool;
     }
 
     //To get and set the room where the character is working on

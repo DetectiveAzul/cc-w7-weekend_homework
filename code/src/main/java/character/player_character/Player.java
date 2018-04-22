@@ -1,6 +1,7 @@
 package character.player_character;
 
 import behaviours.IFoundable;
+import behaviours.IWieldable;
 import character.Character;
 import character.non_player_character.NonPlayerCharacter;
 import collectables.Treasure;

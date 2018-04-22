@@ -4,6 +4,7 @@ import collectables.CoinChest;
 import collectables.CoinType;
 import collectables.Key;
 import collectables.tools.consumables.Potion;
+import collectables.tools.weapons.Weapon;
 import dungeon.EndRoom;
 import dungeon.EntryRoom;
 import dungeon.RoomType;
@@ -24,6 +25,8 @@ public class PlayerTest {
     private NonPlayerCharacter foe;
     private Key key;
     private Potion hpotion;
+    private Weapon sword;
+    private Weapon dagger;
 
 
 
@@ -38,6 +41,8 @@ public class PlayerTest {
         foe = new NonPlayerCharacter("Giant Spider");
         key = new Key("Golden", endRoom);
         hpotion = new Potion("Red", false, 5);
+        sword = new Weapon("Long Sword", 5);
+        dagger = new Weapon("Dagger", 5);
 
     }
 
@@ -166,6 +171,25 @@ public class PlayerTest {
         player.addTreasure(hpotion);
         player.use("Potion");
         assertEquals(0, player.getTreasures().size());
+    }
+
+    @Test
+    public void hasPrimaryTool() {
+       assertNull(player.getPrimaryTool());
+    }
+
+    @Test
+    public void canUsePrimaryTool() {
+        player.use(sword);
+        assertEquals("Long Sword", player.getPrimaryTool().getName());
+    }
+
+    @Test
+    public void canSwapPrimaryTool() {
+        player.use(sword);
+        assertEquals("Long Sword", player.getPrimaryTool().getName());
+        player.use(dagger);
+        assertEquals("Dagger", player.getPrimaryTool().getName());
     }
 
 }
