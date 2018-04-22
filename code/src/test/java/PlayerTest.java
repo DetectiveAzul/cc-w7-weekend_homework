@@ -41,8 +41,8 @@ public class PlayerTest {
         foe = new NonPlayerCharacter("Giant Spider");
         key = new Key("Golden", endRoom);
         hpotion = new Potion("Red", false, 5);
-        sword = new Weapon("Long Sword", 5);
-        dagger = new Weapon("Dagger", 5);
+        sword = new Weapon("Long Sword", 5, 10);
+        dagger = new Weapon("Dagger", 5, 5);
 
     }
 

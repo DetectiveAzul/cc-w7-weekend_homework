@@ -5,8 +5,15 @@ import character.Character;
 import collectables.Treasure;
 
 public class Weapon extends Treasure implements IWieldable {
-    public Weapon(String name, int value) {
+    private int damage;
+
+    public Weapon(String name, int value, int damage) {
         super(name, value);
+        this.damage = damage;
+    }
+
+    public int getDamage() {
+        return damage;
     }
 
     public void use(Character character) {

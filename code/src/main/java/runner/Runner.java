@@ -22,8 +22,8 @@ public class Runner {
         CoinChest chest2 = new CoinChest(100, CoinType.COPPER);
         NonPlayerCharacter foe = new NonPlayerCharacter("Giant Spider");
         Key key = new Key("Golden", end);
-        Weapon sword = new Weapon("Long Sword", 5);
-        Weapon dagger = new Weapon("Dagger", 5);
+        Weapon sword = new Weapon("Long Sword", 5, 10);
+        Weapon dagger = new Weapon("Dagger", 5, 5);
 
 
 
