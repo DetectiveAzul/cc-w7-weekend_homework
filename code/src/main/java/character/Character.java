@@ -103,8 +103,13 @@ public abstract class Character implements IMovable, ITargetable, ICollectionist
     //Targeteable actions
     public void takeDamage(int damage) {
         hp -= damage;
-        if (hp < 0) hp = 0;
+        if (hp < 0) {
+            hp = 0;
+            die();
+        }
     }
+
+    public abstract void die();
 
     public void takeHealing(int healing) {
         hp += healing;

@@ -205,4 +205,15 @@ public class PlayerTest {
         player.savePrimaryTool();
         assertEquals(1, player.getTreasures().size());
     }
+
+    @Test
+    public void isDead() {
+        assertFalse(player.isDead());
+    }
+
+    @Test
+    public void canDie() {
+        player.takeDamage(1000);
+        assertTrue(player.isDead());
+    }
 }

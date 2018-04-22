@@ -10,13 +10,29 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Player extends Character {
+    private boolean dead;
 
     public Player(String name) {
         super(name);
+        this.dead = false;
     }
 
     public Player(String name, int maxhp, int maxStamina, Room currentRoom) {
         super(name, maxhp, maxStamina, currentRoom);
+        this.dead = false;
+    }
+
+    //Getters and setters
+    public boolean isDead() {
+        return dead;
+    }
+
+    public void setDead(boolean dead) {
+        this.dead = dead;
+    }
+
+    public void die() {
+        setDead(true);
     }
 
     //Check input action
